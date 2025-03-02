@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://537h125clwkx"]
+
+[ext_resource type="Texture2D" uid="uid://df8bofs4miwoj" path="res://Assets/Spirit Boxer/Spirit Boxer/Idle.png" id="1_o1u1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qetia"]
+atlas = ExtResource("1_o1u1a")
+region = Rect2(0, 0, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocu7r"]
+atlas = ExtResource("1_o1u1a")
+region = Rect2(0, 44, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1k3uq"]
+atlas = ExtResource("1_o1u1a")
+region = Rect2(0, 88, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yijbp"]
+atlas = ExtResource("1_o1u1a")
+region = Rect2(0, 132, 34, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xw2fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qetia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocu7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1k3uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yijbp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hwbi"]
+radius = 6.0
+height = 18.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(60, -8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_xw2fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7)
+shape = SubResource("CapsuleShape2D_1hwbi")
